@@ -3,66 +3,236 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🐢 Proyectos con Python Turtle</title>
+  <title>Proyectos con Python Turtle</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #e6ffe6;
+    * {
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      box-sizing: border-box;
     }
-    h1 {
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #A7A9AC 0%, #8A8C8F 100%);
+      min-height: 100vh;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
       text-align: center;
-      color: #2d6a4f;
+      margin-bottom: 40px;
+      color: white;
     }
+
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
     .proyecto {
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-      margin-bottom: 30px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .proyecto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .proyecto-header {
+      background: linear-gradient(45deg, #9E0044, #B8004F);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .proyecto-header h2 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .proyecto-header .author {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .proyecto-content {
       padding: 20px;
     }
-    h2 {
-      margin-top: 0;
-      color: #40916c;
-    }
+
     iframe {
       width: 100%;
       height: 400px;
       border: none;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-    ul {
-      background: #fff;
-      padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
-    li {
-      margin-bottom: 8px;
+
+    .changes-section {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      margin-top: 30px;
+    }
+
+    .changes-section h2 {
+      color: #9E0044;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    .changes-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .changes-list li {
+      background: #f5f5f5;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 12px;
+      border-left: 4px solid #9E0044;
+      transition: background 0.3s ease;
+    }
+
+    .changes-list li:hover {
+      background: #e8e8e8;
+    }
+
+    .changes-list strong {
+      color: #9E0044;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      padding: 20px;
+      background: linear-gradient(45deg, #9E0044, #B8004F);
+      border-radius: 12px;
+      color: white;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .stats {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    .loading {
+      text-align: center;
+      padding: 20px;
+      color: #666;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="header">
+      <h1>Galería de Proyectos Python Turtle</h1>
+      <p>Descubre las increíbles creaciones de nuestros estudiantes</p>
+    </div>
 
-  <h1>🐢 Galería de Proyectos Turtle</h1>
+    <div class="projects-grid">
+      <div class="proyecto">
+        <div class="proyecto-header">
+          <h2>Tortuga y lápiz</h2>
+          <div class="author">Por Ana</div>
+        </div>
+        <div class="proyecto-content">
+          <iframe src="https://trinket.io/embed/python/ba4138281040" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+        </div>
+      </div>
 
-  <div class="proyecto">
-    <h2>✨ Proyecto de Ana: Tortuga y lápiz</h2>
-    <iframe src="https://trinket.io/embed/python/6476ddf09188?outputOnly=true" allowfullscreen></iframe>
+      <div class="proyecto">
+        <div class="proyecto-header">
+          <h2>Mandala</h2>
+          <div class="author">Por Mateo</div>
+        </div>
+        <div class="proyecto-content">
+          <iframe src="https://trinket.io/embed/python/30bc8c8e1208?outputOnly=true" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="changes-section">
+      <h2>Actualizaciones Recientes</h2>
+      <ul class="changes-list">
+        <li>
+          <strong>nombre.py</strong>
+          Se añadieron movimientos de la tortuga y control del lápiz para crear patrones más complejos.
+        </li>
+        <li>
+          <strong>mandala.py</strong>
+          Se ajustó el bucle para crear un diseño de mandala más simétrico y colorido.
+        </li>
+      </ul>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Estudiantes</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Completados</span>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="proyecto">
-    <h2>✨ Proyecto de Mateo: Mandala</h2>
-    <iframe src="https://trinket.io/embed/python/30bc8c8e1208?outputOnly=true" allowfullscreen></iframe>
-  </div>
-
-  <h2>📝 Cambios recientes</h2>
-  <ul>
-    <li><strong>nombre.py</strong> - Se añadieron movimientos de la tortuga y control del lápiz.</li>
-    <li><strong>mandala.py</strong> - Se ajustó el bucle para crear un diseño de mandala más simétrico.</li>
-  </ul>
-
 </body>
 </html>
